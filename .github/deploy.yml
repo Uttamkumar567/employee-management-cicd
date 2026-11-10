@@ -1,0 +1,49 @@
+name: Employee Management CI/CD
+ 
+# Run pipeline whenever code is pushed to main
+on:
+  push:
+    branches:
+      - main
+ 
+  pull_request:
+    branches:
+      - main
+ 
+# Pipeline permissions
+permissions:
+  contents: read
+ 
+jobs:
+ 
+  validate:
+    name: Validate Application
+    runs-on: ubuntu-latest
+ 
+    steps:
+ 
+      # Step 1: Download repository code
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+ 
+      # Step 2: Check Node.js availability
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+ 
+      # Step 3: Verify project files
+      - name: Check Project Files
+        run: |
+          test -f index.html
+          test -f css/style.css
+          test -f js/script.js
+          echo "All project files are available!"
+ 
+      # Step 4: Validate JavaScript syntax
+      - name: Validate JavaScript
+        run: node --check js/script.js
+ 
+      # Step 5: Pipeline success
+      - name: CI Completed
+        run: echo "Employee Management CI Pipeline Passed!"
