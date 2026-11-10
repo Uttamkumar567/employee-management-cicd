@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Employee Management System</title>
+ 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+ 
+<body>
+ 
+    <header>
+        <h1>Employee Management System</h1>
+        <p>Manage your employees efficiently</p>
+    </header>
+ 
+    <main>
+ 
+        <section class="dashboard">
+            <div class="card">
+                <h3>Total Employees</h3>
+                <p id="totalEmployees">0</p>
+            </div>
+ 
+            <div class="card">
+                <h3>Active Employees</h3>
+                <p id="activeEmployees">0</p>
+            </div>
+        </section>
+ 
+        <section class="employee-form">
+            <h2>Add New Employee</h2>
+ 
+            <form id="employeeForm">
+                <input type="text" id="name"
+                    placeholder="Employee Name" required>
+ 
+                <input type="email" id="email"
+                    placeholder="Employee Email" required>
+ 
+                <input type="text" id="department"
+                    placeholder="Department" required>
+ 
+                <button type="submit">Add Employee</button>
+            </form>
+        </section>
+ 
+        <section class="employee-list">
+            <h2>Employee Records</h2>
+ 
+            <input type="text" id="search"
+                placeholder="Search employees...">
+ 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+ 
+                <tbody id="employeeTable">
+                </tbody>
+            </table>
+        </section>
+ 
+    </main>
+ 
+    <script src="js/script.js"></script>
+ 
+</body>
+</html>
+ 
